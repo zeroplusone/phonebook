@@ -21,6 +21,17 @@ static double diff_in_second(struct timespec t1, struct timespec t2)
     return (diff.tv_sec + diff.tv_nsec / 1000000000.0);
 }
 
+void freeList(entry* head)
+{
+    entry* tmp;
+    while(head != NULL)
+    {
+        tmp = head;
+        head = head->pNext;
+        free(tmp);
+    }
+}
+
 int main(int argc, char *argv[])
 {
     FILE *fp;
@@ -83,7 +94,7 @@ int main(int argc, char *argv[])
     printf("execution time of findName() : %lf sec\n", cpu_time2);
 
     /* FIXME: release all allocated entries */
-    free(pHead);
+    freeList(pHead);
 
     return 0;
 }
