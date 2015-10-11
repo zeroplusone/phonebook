@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
     printf("execution time of append() : %lf sec\n", cpu_time1);
     printf("execution time of findName() : %lf sec\n", cpu_time2);
 
-    /* FIXME: release all allocated entries */
+    /* Release all allocated entries */
     freeList(pHead);
 
     return 0;
