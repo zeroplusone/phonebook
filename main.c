@@ -24,8 +24,7 @@ static double diff_in_second(struct timespec t1, struct timespec t2)
 void freeList(entry* head)
 {
     entry* tmp;
-    while(head != NULL)
-    {
+    while(head != NULL) {
         tmp = head;
         head = head->pNext;
         free(tmp);
