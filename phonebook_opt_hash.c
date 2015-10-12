@@ -66,3 +66,20 @@ entry *append(char lastName[], entry *e)
     /* e is useless in hash version, keep it for formmat of API */
     return e;
 }
+
+void freeList(entry* head)
+{
+    /* head is unnueccessary. Keep it for abstract*/ 
+    for(int i = 0; i < MAX_HASH_TABLE_SIZE;++i) {
+        head = hashTable[i]->head;
+        entry* tmp;
+        while(head != NULL) {
+            tmp = head;
+            head = head->pNext;
+            free(tmp);
+        }
+        free(hashTable[i]);
+    }
+}
+
+

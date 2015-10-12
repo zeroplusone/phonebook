@@ -25,5 +25,6 @@ typedef struct __ENTRY_DETAIL {
 
 entry *findName(char lastname[], entry *pHead);
 entry *append(char lastName[], entry *e);
+void freeList(entry* head);
 
 #endif
